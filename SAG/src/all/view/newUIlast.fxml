@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootStackPane" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="all.controller.Controlador">
+   <children>
+      <AnchorPane fx:id="ancPaneMain" prefHeight="450.0" prefWidth="1000.0">
+         <children>
+            <AnchorPane fx:id="ancPaneTables" layoutX="40.0" layoutY="103.0" prefHeight="347.0" prefWidth="960.0">
+               <children>
+                  <AnchorPane fx:id="ancPaneTitleTables" minHeight="23.0" prefHeight="23.0" prefWidth="963.0" styleClass="ancPaneTitle">
+                     <children>
+                        <Label fx:id="lbConGastos" layoutX="431.0" layoutY="3.0" text="Control de Gastos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbConDeudas" layoutX="429.0" layoutY="3.0" text="Control de Deudas" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="btnRealGast" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" layoutX="720.0" layoutY="-2.0" onAction="#pressButtonAction" prefHeight="25.0" prefWidth="40.0" styleClass="doPayGastoDeuda" text="PG" textAlignment="CENTER" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip styleClass="sty-toolsTips" text="Pagar Gasto" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXButton fx:id="btnPagarDeuda" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" layoutX="720.0" layoutY="-2.0" onAction="#pressButtonAction" prefHeight="25.0" prefWidth="40.0" styleClass="doPayGastoDeuda" text="PD" textAlignment="CENTER" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip styleClass="sty-toolsTips" text="Pagar Deuda" />
+                           </tooltip>
+                        </JFXButton>
+                        <JFXButton fx:id="btnRemoverDeuda" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" layoutX="770.0" layoutY="-2.0" onAction="#pressButtonAction" prefHeight="25.0" prefWidth="40.0" style="-fx-background-color: #035AA6;" text="RD" textAlignment="CENTER" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip styleClass="sty-toolsTips" text="Remover Deuda" />
+                           </tooltip>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ancPaneTableGas" layoutX="14.0" layoutY="30.0" prefHeight="304.0" prefWidth="930.0" style="-fx-background-color: #87939A;">
+                     <children>
+                        <TableView fx:id="tableViewGastos" focusTraversable="false" layoutX="-1.0" onMouseClicked="#tableMouseClicked" onMouseEntered="#tableMouseEntered" onMouseExited="#tableMouseExited" prefHeight="305.0" prefWidth="931.0">
+                           <columns>
+                              <TableColumn fx:id="columGasto" prefWidth="192.0" text="Gasto" />
+                              <TableColumn fx:id="columValor" prefWidth="40.0" text="Valor" />
+                              <TableColumn fx:id="columDescripcion" prefWidth="182.66665649414062" text="Descripción" />
+                              <TableColumn fx:id="columFechaI" prefWidth="191.33331298828125" text="Fecha I" />
+                              <TableColumn fx:id="columFechaF" prefWidth="43.66668701171875" text="Fecha F" />
+                              <TableColumn fx:id="columEsRealizado" prefWidth="62.0" text="Esta Realizado" />
+                              <TableColumn fx:id="columnEsPlaneado" minWidth="0.0" prefWidth="148.0" text="Es Planeado" />
+                              <TableColumn fx:id="columBilletera" prefWidth="77.0" text="Billetera" />
+                           </columns>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ancPaneTableDeudas" layoutX="14.0" layoutY="30.0" prefHeight="305.0" prefWidth="930.0" style="-fx-background-color: #87939A;" visible="false">
+                     <children>
+                        <TableView fx:id="tableViewDeudas" layoutY="-1.0" onMouseClicked="#table2MouseClicked" onMouseEntered="#tableMouseEntered" onMouseExited="#tableMouseExited" prefHeight="307.0" prefWidth="932.0">
+                           <columns>
+                              <TableColumn fx:id="valorColumn" prefWidth="148.3333740234375" text="Valor" />
+                              <TableColumn fx:id="personaColumn" prefWidth="259.6666259765625" text="Persona" />
+                              <TableColumn fx:id="descripcionColumn" minWidth="0.0" prefWidth="133.0" text="Descripción" />
+                              <TableColumn fx:id="isPaidColumn" minWidth="3.0" prefWidth="23.0" text="Esta Pago" />
+                              <TableColumn fx:id="isLendColumn" prefWidth="559.0" text="Es Prestado" />
+                              <TableColumn fx:id="fInicialColumn" prefWidth="559.0" text="Fecha Inicial" />
+                              <TableColumn fx:id="fPagoColumn" prefWidth="559.0" text="Fecha Pago" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <JFXButton fx:id="btnChange" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" layoutX="947.0" layoutY="171.0" onAction="#showOtherTable" prefHeight="25.0" prefWidth="13.0" style="-fx-background-color: #111111; -fx-background-radius: 10em;" text="&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="6.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="achPaneCalculations" layoutX="40.0" prefHeight="104.0" prefWidth="960.0">
+               <children>
+                  <AnchorPane fx:id="achPaneShowCal" layoutX="-1.0" prefHeight="104.0" prefWidth="964.0" style="-fx-background-color: #3C3F41;">
+                     <children>
+                        <JFXTextField fx:id="txtGastosFaltantes" editable="false" layoutX="147.0" layoutY="34.0" prefHeight="25.0" prefWidth="115.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="155.0" layoutY="64.0" styleClass="colorLabelsPanels" text="Presupuesto inicial" textFill="#bbaaaa" />
+                        <JFXTextField fx:id="txtPresuInicial" editable="false" layoutX="314.0" layoutY="34.0" prefHeight="25.0" prefWidth="115.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="323.0" layoutY="64.0" styleClass="colorLabelsPanels" text="Dinero G faltantes" textFill="#bbaaaa" />
+                        <JFXTextField fx:id="txtDineroExistente" editable="false" layoutX="479.0" layoutY="34.0" prefHeight="25.0" prefWidth="115.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="493.0" layoutY="64.0" styleClass="colorLabelsPanels" text="Dinero existente" textFill="#bbaaaa" />
+                        <JFXTextField fx:id="txtDineroLibre" editable="false" layoutX="645.0" layoutY="34.0" prefHeight="25.0" prefWidth="115.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="671.0" layoutY="64.0" styleClass="colorLabelsPanels" text="Dinero libre" textFill="#bbaaaa" />
+                        <JFXComboBox fx:id="cbxFilterCalculations" layoutX="794.0" layoutY="33.0" onAction="#pressComboBoxAction" prefHeight="25.0" prefWidth="120.0" styleClass="cbxWalletAddIngreso" />
+                        <Label layoutX="805.0" layoutY="64.0" styleClass="colorLabelsPanels" text="Filtrar por billetera" textFill="#bbaaaa" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneAddIngreso" layoutX="-1.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtAddIngDescripcion" layoutX="213.0" layoutY="25.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="246.0" layoutY="52.0" styleClass="colorLabelsPanels" text="Descripcion" textFill="WHITE" />
+                        <JFXTextField fx:id="txtAddIngValor" layoutX="383.0" layoutY="25.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="431.0" layoutY="52.0" styleClass="colorLabelsPanels" text="Valor" textFill="WHITE" />
+                        <JFXComboBox fx:id="cbxAddIngBilletera" layoutX="553.0" layoutY="25.0" prefHeight="25.0" prefWidth="120.0" styleClass="cbxWalletAddIngreso" />
+                        <Label layoutX="592.0" layoutY="52.0" styleClass="colorLabelsPanels" text="Billetera" textFill="WHITE" />
+                        <JFXButton fx:id="btnAddIngreso" layoutX="714.0" layoutY="39.0" onAction="#pressButtonAction" styleClass="btnAddGastoDeuda" text="Add Ingreso" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip text="Empty Tooltip" />
+                           </tooltip>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneAddGasto" layoutX="-1.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtLlenarGasto" layoutX="68.0" layoutY="27.0" prefHeight="25.0" prefWidth="130.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="118.0" layoutY="54.0" styleClass="colorLabelsPanels" text="Gasto" textFill="WHITE" />
+                        <JFXTextField fx:id="txtLlenarValorGasto" layoutX="228.0" layoutY="27.0" prefHeight="25.0" prefWidth="130.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="279.0" layoutY="54.0" styleClass="colorLabelsPanels" text="Valor" textFill="WHITE" />
+                        <JFXTextField fx:id="txtLlenarDescripcion" layoutX="388.0" layoutY="26.0" prefHeight="25.0" prefWidth="130.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="422.0" layoutY="54.0" styleClass="colorLabelsPanels" text="Descripcion" textFill="WHITE" />
+                        <JFXComboBox fx:id="cbxWallets" layoutX="548.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" styleClass="cbxWalletAddIngreso" />
+                        <Label layoutX="577.0" layoutY="54.0" styleClass="colorLabelsPanels" text="Billetera" textFill="WHITE" />
+                        <JFXComboBox fx:id="cbxIsPlaned" layoutX="678.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" styleClass="cbxWalletAddIngreso" />
+                        <Label layoutX="701.0" layoutY="54.0" styleClass="colorLabelsPanels" text="planeado?" textFill="WHITE" />
+                        <JFXButton fx:id="btnAddGasto" layoutX="808.0" layoutY="39.0" onAction="#pressButtonAction" ripplerFill="#e8dada" styleClass="btnAddGastoDeuda" text="Add Gasto" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneShowDeu" layoutX="-1.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtTotalDeudas" layoutX="251.0" layoutY="35.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="277.0" layoutY="65.0" styleClass="colorLabelsPanels" text="Total deudas" textFill="WHITE" />
+                        <JFXTextField fx:id="txtDeudasPagas" layoutX="422.0" layoutY="35.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="445.0" layoutY="65.0" styleClass="colorLabelsPanels" text="Deudas Pagas" textFill="WHITE" />
+                        <JFXTextField fx:id="txtDeudasFaltantes" layoutX="592.0" layoutY="35.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="607.0" layoutY="65.0" styleClass="colorLabelsPanels" text="Deudas Faltantes" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneAddDeu" layoutX="-1.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtLlenarValorDeuda" layoutX="44.0" layoutY="32.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="99.0" layoutY="62.0" styleClass="colorLabelsPanels" text="valor" textFill="WHITE" />
+                        <JFXTextField fx:id="txtLlenarPersonaDeuda" layoutX="230.0" layoutY="32.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="264.0" layoutY="62.0" styleClass="colorLabelsPanels" text="persona/inst" textFill="WHITE" />
+                        <JFXTextField fx:id="txtLlenarDescripcionDeuda" layoutX="416.0" layoutY="32.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="453.0" layoutY="62.0" styleClass="colorLabelsPanels" text="Descripcion" textFill="WHITE" />
+                        <JFXComboBox fx:id="cbxEsDeuda" layoutX="601.0" layoutY="32.0" prefHeight="25.0" prefWidth="75.0" styleClass="cbxWalletAddIngreso" />
+                        <Label layoutX="612.0" layoutY="62.0" styleClass="colorLabelsPanels" text="prestado?" textFill="WHITE" />
+                        <JFXButton fx:id="btnAddDeuda" layoutX="726.0" layoutY="45.0" onAction="#pressButtonAction" styleClass="btnAddGastoDeuda" text="Add deuda" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneAddBill" layoutX="-1.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtAddWallet" layoutX="373.0" layoutY="31.0" prefHeight="25.0" prefWidth="120.0" styleClass="textFieldsPanels" />
+                        <Label layoutX="388.0" layoutY="57.0" styleClass="colorLabelsPanels" text="Nombre Billetera" textFill="WHITE" />
+                        <JFXButton fx:id="btnAddBill" layoutX="533.0" layoutY="44.0" onAction="#pressButtonAction" styleClass="btnAddGastoDeuda" text="Add Bill" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip text="Empty Tooltip" />
+                           </tooltip>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="achPaneInfoIngres" layoutX="-2.0" prefHeight="104.0" prefWidth="963.0" style="-fx-background-color: #3C3F41;" visible="false" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="achPaneButtons" minWidth="40.0" prefHeight="450.0" prefWidth="40.0" style="-fx-background-color: #111111;">
+               <children>
+                  <JFXButton fx:id="btnMeCalGastos" buttonType="RAISED" layoutY="-1.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#0379ee" styleClass="sty-btnsMains" text="SC" textFill="#fcfcfc">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn1" styleClass="sty-toolsTips" text="Show Calculates" />
+                     </tooltip>
+                  </JFXButton>
+                  <JFXButton fx:id="btnMeAddGastos" layoutY="39.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1175d900" styleClass="sty-btnsMains" text="AG" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn11" styleClass="sty-toolsTips" text="Add Gasto" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnMeCalDeuda" layoutY="78.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMains" text="SD" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn12" styleClass="sty-toolsTips" text="Show Deudas" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnMeAddDeuda" layoutY="116.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMains" text="AD" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn13" styleClass="sty-toolsTips" text="Add Deudas" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnMeAddIngres" layoutY="155.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMains" text="AI" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn14" styleClass="sty-toolsTips" text="Add Ingresos" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnMeAddBill" layoutY="194.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMains" text="AW" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn15" styleClass="sty-toolsTips" text="Add Wallet" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnMeInfoIngresos" layoutY="232.0" onAction="#pressButtonActionPanels" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMains" text="SI" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn16" styleClass="sty-toolsTips" text="Show Ingresos" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnFileNew" layoutY="290.0" onAction="#pressButtonActionFile" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMenuExternal" text="N" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn110" styleClass="sty-toolsTips" text="New File" />
+                     </tooltip>
+                  </JFXButton>
+                  <JFXButton fx:id="btnFileOpen" layoutY="330.0" onAction="#pressButtonActionFile" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMenuExternal" text="O" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn17" styleClass="sty-toolsTips" text="Open File" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnFileSave" layoutY="370.0" onAction="#pressButtonActionFile" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMenuExternal" text="S" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn18" styleClass="sty-toolsTips" text="Save File" />
+                     </tooltip></JFXButton>
+                  <JFXButton fx:id="btnFileSaveAs" layoutY="410.0" onAction="#pressButtonActionFile" prefHeight="40.0" prefWidth="40.0" ripplerFill="#1075da" styleClass="sty-btnsMenuExternal" text="SA" textFill="#fcfcfc">
+                     <tooltip>
+                        <Tooltip fx:id="toolTipBtn19" styleClass="sty-toolsTips" text="Save as File" />
+                     </tooltip></JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

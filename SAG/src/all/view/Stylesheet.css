@@ -1,0 +1,44 @@
+/*Estilo de los Tabs*/
+.backgroundTab1 {
+    -fx-background-color: #09ac7d;
+}
+
+
+
+.backgroundTab2 {
+    -fx-background-color: #099d6e;
+}
+
+.backgroudSecc11 {
+    -fx-background-color: #09ac7d;
+}
+
+.backgroudSecc12 {
+    -fx-background-color: #099d6e;
+}
+
+.backgroundTabAll {
+    /*-fx-background-radius: 2em;*/
+/ / para darle circunferencia
+}
+
+/* Estilos del Tab */
+.tab-header-background {
+    -fx-background-color: #17758d;
+}
+
+.tab .tab-label {
+    -fx-font-family: "Yu Gothic Medium";
+}
+
+/*Boton agregar gasto */
+
+
+.btnAddGasto:hover {
+    -fx-background-color: rgba(53, 60, 46, 0.82);
+}
+
+.btnAddGasto {
+    -fx-background-color: #111111;
+    -fx-border-radius: 5em;
+}

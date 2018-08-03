@@ -1,0 +1,13 @@
+1;dfhdfh;3534645.0
+1;fghdrhr;3456346.0
+1;dfghkliñui;3.45675679E8
+1;dfgerth;2.3453465E7
+3;ertgryjuk;25346.0;ehrtyj;29/11/2017
+3;fghjgh;456.0;hjkuy;29/11/2017
+3;regreth;3456346.0;dfghgj;29/11/2017
+3;oscarSiGuardo;20000.0;ok;29/11/2017
+3;rtjnbdf;235634.0;dsfhdfjg;29/11/2017
+3;wertgertuj;4564567.0;ukliuoñ;29/11/2017
+3;dfgdfgh;234546.0;dfhfdghj;30/11/2017
+3;34546;345456.0;grherty;30/11/2017
+3;6uiuo;67879.0;iñiuy;30/11/2017

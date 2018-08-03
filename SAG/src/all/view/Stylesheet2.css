@@ -1,0 +1,73 @@
+/*Estilo de los Tabs*/
+/* Botones principales para mostrar calculos*/
+
+.sty-btnsMains {
+    -fx-background-color: #09ac7d;
+    -fx-background-radius: 0em;
+    /*-fx-border-color: #111111;*/
+}
+
+.sty-btnsMains:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btnAddGastoDeuda {
+    -fx-background-color: rgba(166, 16, 43, 0.93);
+}
+
+.btnAddGastoDeuda:hover {
+    -fx-background-color: rgba(227, 17, 45, 0.85);
+}
+
+.sty-btnsMenuExternal {
+    -fx-background-color: rgba(227, 17, 45, 0.85);
+    -fx-background-radius: 0em;
+    /*-fx-border-color: #0e6147;*/
+}
+
+.sty-btnsMenuExternal:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.doPayGastoDeuda {
+    -fx-background-color: rgba(166, 16, 43, 0.93);
+    -fx-background-radius: 0em;
+}
+
+.doPayGastoDeuda:hover {
+    -fx-background-color: rgba(227, 17, 45, 0.85);
+}
+
+.ancPaneTitle {
+    -fx-background-color: rgba(54, 64, 62, 0.89);
+}
+
+.ancPaneContentAllTables {
+    -fx-background-color: #111111;
+}
+
+.sty-toolsTips {
+    -fx-background-color: rgba(0, 0, 0, 0.71);
+    -fx-background-radius: 0em;
+}
+
+.cbxWalletAddIngreso .cell { /*En este estilo se incluye el filtro en los calculos */
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+
+.cbxWalletAddIngreso .list-view .list-cell{
+    -fx-text-fill: rgba(5, 8, 4, 0.88);
+}
+
+
+
+
+.textFieldsPanels {
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+}
+
+.colorLabelsPanels {
+    -fx-text-fill: rgba(255, 255, 255, 0.5);
+}
